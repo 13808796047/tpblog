@@ -1,0 +1,64 @@
+{extend name='layouts/app'}
+{block name='title'}登录{/block}
+{block name='content'}
+<div class="login-container">
+    <div class="loginbox bg-white">
+        <div class="loginbox-title">登录</div>
+        <form>
+            <div class="loginbox-or">
+                <div class="or-line"></div>
+            </div>
+            <div class="loginbox-textbox">
+                <input type="text" class="form-control" name="username" placeholder="用户名"/>
+            </div>
+            <div class="loginbox-textbox">
+                <input type="password" class="form-control" name="password" placeholder="密码"/>
+            </div>
+            <div class="loginbox-forgot">
+                <a href="{:url('admin/index/forget')}">忘记密码?</a>
+            </div>
+            <div class="loginbox-submit">
+                <input type="button" class="btn btn-primary btn-block" id='login' value="登录">
+            </div>
+            <div class="loginbox-signup">
+                <a href="{:url('admin/index/register')}">注册账户</a>
+            </div>
+        </form>
+    </div>
+</div>
+{/block}
+{block name='script'}
+<script>
+
+    $(() => {
+        $('#login').click(() => {
+            $.ajax({
+                url: "{:url('admin/index/login')}",
+                type: 'post',
+                data: $('form').serialize(),
+                dataType: 'json',
+                success: (data) => {
+                    console.log(data);
+                    if (data.code == 1) {
+                        layer.msg(data.msg, {
+                            icon: 6,
+                            time: 2000
+                        }, () => {
+                            location.href = data.url;
+                        });
+                    } else {
+                        layer.open({
+                            title: '登录失败',
+                            content: data.msg,
+                            icon: 5,
+                            anmi: 6
+                        })
+                    }
+                }
+
+            });
+            return false;
+        })
+    })
+</script>
+{/block}

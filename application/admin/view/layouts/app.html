@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>管理后台--{block name='title'}{/block}</title>
+    <link rel="shortcut icon" href="/logo.jpg" type="image/x-icon">
+    <link href="/static/admin/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="/static/admin/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="/static/admin/css/weather-icons.min.css" rel="stylesheet"/>
+    <link id="beyond-link" href="/static/admin/css/beyond.min.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+{block name='content'}{/block}
+
+<script src="/static/admin/js/skins.min.js"></script>
+<!--Basic Scripts-->
+<script src="/static/admin/js/jquery.min.js"></script>
+<script src="/static/admin/js/bootstrap.min.js"></script>
+<script src="/static/admin/js/slimscroll/jquery.slimscroll.min.js"></script>
+<!--Beyond Scripts-->
+<script src="/static/admin/js/beyond.js"></script>
+<script src="/static/lib/layer/layer.js"></script>
+<script>
+    $(window).bind("load", function () {
+
+        /*Sets Themed Colors Based on Themes*/
+        themeprimary = getThemeColorFromCss('themeprimary');
+        themesecondary = getThemeColorFromCss('themesecondary');
+        themethirdcolor = getThemeColorFromCss('themethirdcolor');
+        themefourthcolor = getThemeColorFromCss('themefourthcolor');
+        themefifthcolor = getThemeColorFromCss('themefifthcolor');
+
+    });
+
+</script>
+{block name='script'}{/block}
+</body>
+<!--  /Body -->
+</html>

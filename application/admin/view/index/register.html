@@ -1,0 +1,71 @@
+{extend name='layouts/app'}
+{block name='title'}注册{/block}
+{block name='content'}
+<div class="login-container">
+    <div class="loginbox bg-white">
+        <div class="loginbox-title">注册</div>
+        <form>
+            <div class="loginbox-or">
+                <div class="or-line"></div>
+            </div>
+            <div class="loginbox-textbox">
+                <input type="text" class="form-control" name="username" placeholder="填写用户名"/>
+            </div>
+            <div class="loginbox-textbox">
+                <input type="password" class="form-control" name="password" placeholder="填写密码"/>
+            </div>
+            <div class="loginbox-textbox">
+                <input type="password" class="form-control" name="confirm_password" placeholder="确认密码"/>
+            </div>
+            <div class="loginbox-textbox">
+                <input type="text" class="form-control" name="nickname" placeholder="昵称"/>
+            </div>
+            <div class="loginbox-textbox">
+                <input type="email" class="form-control" name="email" placeholder="邮箱"/>
+            </div>
+            <div class="loginbox-forgot">
+                <a href="{:url('admin/index/forget')}">忘记密码?</a>
+            </div>
+            <div class="loginbox-submit">
+                <input type="button" class="btn btn-primary btn-block" id="register" value="注册">
+            </div>
+            <div class="loginbox-signup">
+                <a href="{:url('admin/index/login')}">返回登录</a>
+            </div>
+        </form>
+    </div>
+</div>
+{/block}
+{block name='script'}
+<script>
+    $(() => {
+        $('#register').click(() => {
+            $.ajax({
+                url: "{:url('admin/index/register')}",
+                type: 'post',
+                data: $('form').serialize(),
+                dataType: 'json',
+                success: (data) => {
+                   if(data.code==1){
+                       layer.msg(data.msg,{
+                           icon:6,
+                           time:2000
+                       },()=>{
+                           location.href = data.url;
+                       });
+                   }else{
+                       layer.open({
+                           title:'注册失败',
+                           content:data.msg,
+                           icon:5,
+                           anim:6
+                       });
+                   }
+                }
+            })
+            return false;
+        })
+    })
+</script>
+{/block}
+
