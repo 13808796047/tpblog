@@ -2,10 +2,18 @@
 
 namespace app\admin\controller;
 
+
 use think\Controller;
 
 class Index extends Controller
 {
+    protected function initialize()
+    {
+        if (session('admin.id')){
+            $this->redirect('admin/index');
+        }
+    }
+
     //后台登录
     public function login()
     {
@@ -23,7 +31,12 @@ class Index extends Controller
         }
         return view();
     }
-
+    //退出登录
+    public function logout()
+    {
+        session(null);
+        $this->success('退出成功','admin/index/login');
+    }
     //注册
     public function register()
     {

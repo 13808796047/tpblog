@@ -1,4 +1,4 @@
-<?php /*a:2:{s:74:"/Users/mars/Desktop/code/tpblog/application/admin/view/index/register.html";i:1531904744;s:71:"/Users/mars/Desktop/code/tpblog/application/admin/view/layouts/app.html";i:1531897949;}*/ ?>
+<?php /*a:2:{s:74:"/Users/mars/Desktop/code/tpblog/application/admin/view/index/register.html";i:1531904744;s:71:"/Users/mars/Desktop/code/tpblog/application/admin/view/layouts/app.html";i:1531928185;}*/ ?>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>管理后台--注册</title>
-    <link rel="shortcut icon" href="/logo.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="/static/admin/img/logo.jpg" type="image/x-icon">
     <link href="/static/admin/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="/static/admin/css/font-awesome.min.css" rel="stylesheet"/>
     <link href="/static/admin/css/weather-icons.min.css" rel="stylesheet"/>
